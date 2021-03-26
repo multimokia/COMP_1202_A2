@@ -84,7 +84,12 @@ namespace assignment02
             string fName = Prompt("Please enter the person's first name");
             string lName = Prompt("Please enter the person's last name");
             string email = Prompt("Please enter the person's email address");
-            string phone = Prompt("Please enter the person's phone number").Replace("-", "").Replace(" ", "");
+
+            //Do a bit of validation on phone number as it must be at least 7 digits for numbers to format correctly
+            string phone = Prompt(
+                "Please enter the person's phone number",
+                x => x.Replace("-", "").Replace(" ", "").Length > 7
+            ).Replace("-", "").Replace(" ", "");
 
             //Prompt for year first so we can see if it's a leap year
             int yearOfBirth = promptForNumber("Please enter the person's birth year", x => x <= DateTime.Now.Year);
