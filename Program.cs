@@ -5,6 +5,10 @@ using GUI.Menu;
 using static GUI.InterfaceUtils;
 using static Crayon.Output;
 
+/*
+    Michael D'mello (101331770)
+    Minkyu  Kim     (101003196)
+ */
 namespace assignment02
 {
     class Program

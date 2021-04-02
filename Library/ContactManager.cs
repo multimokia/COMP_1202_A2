@@ -85,7 +85,7 @@ namespace Library.ContactManager
         }
 
         /// <summary>
-        /// Contact lookup function by first name
+        /// Contact lookup function by full name
         /// </summary>
         /// <param name="fullname">Full name of the contact to lookup</param>
         /// <returns>Contact object representing the contact with the name provided, or null if not found</returns>
@@ -102,18 +102,18 @@ namespace Library.ContactManager
             if (!HasContacts)
                 { return false; }
 
-            Contact[] contacts = Contacts;
-            for (int i=0; i < contacts.Length; i++)
-            {
-                if (contacts[i].getFullName() == fullname)
-                {
-                    int _contactsLength = _contacts.Length;
-                    _contacts = _contacts.Where(x => x != contacts[i]).ToArray();
-                    Array.Resize(ref _contacts, _contactsLength);
-                    return true;
-                }
-            }
-            return false;
+            int _contactsLength = _contacts.Length;
+
+            //Filter out the contact we wish to remove
+            _contacts = _contacts.Where(x => x is null || x.getFullName() != fullname).ToArray();
+
+            //Check if any were deleted, return false if not
+            if (_contacts.Length == _contactsLength)
+                { return false; }
+
+            //Otherwise we need to add the space back and return success
+            Array.Resize(ref _contacts, _contactsLength);
+            return true;
         }
     }
 }
