@@ -7,13 +7,13 @@ namespace Library
     /// Contact object
     ///
     /// PRIVATE PROPERTIES:
-    ///     _firstName
-    ///     _lastName
-    ///     _phone
-    ///     _email
-    ///     _dayOfBirth
-    ///     _monthOfBirth
-    ///     _yearOfBirth
+    ///     firstName
+    ///     lastName
+    ///     phone
+    ///     email
+    ///     dayOfBirth
+    ///     monthOfBirth
+    ///     yearOfBirth
     ///
     /// METHODS:
     ///     getFirstName
@@ -27,31 +27,31 @@ namespace Library
         /// <summary>
         /// First name
         /// </summary>
-        string _firstName;
+        string firstName;
         /// <summary>
         /// Last name
         /// </summary>
-        string _lastName;
+        string lastName;
         /// <summary>
         /// Phone number
         /// </summary>
-        string _phone;
+        string phone;
         /// <summary>
         /// Email address
         /// </summary>
-        string _email;
+        string email;
         /// <summary>
         /// Birthdate day
         /// </summary>
-        int _dayOfBirth;
+        int dayOfBirth;
         /// <summary>
         /// Birthmonth
         /// </summary>
-        int _monthOfBirth;
+        int monthOfBirth;
         /// <summary>
         /// Birthyear
         /// </summary>
-        int _yearOfBirth;
+        int yearOfBirth;
 
         /// <summary>
         /// Contact constructor
@@ -63,15 +63,23 @@ namespace Library
         /// <param name="dayOfBirth">Birthday day of the contact</param>
         /// <param name="monthOfBirth">Birthmonth of the contact</param>
         /// <param name="yearOfBirth">Birthyear of the contact</param>
-        public Contact(string firstName, string lastName, string phoneNumber, string emailAddress, int dayOfBirth, int monthOfBirth, int yearOfBirth)
+        public Contact(
+            string firstname,
+            string lastname,
+            string phonenumber,
+            string emailaddress,
+            int dayofbirth,
+            int monthofbirth,
+            int yearofbirth
+        )
         {
-            _firstName = firstName;
-            _lastName = lastName;
-            _phone = phoneNumber;
-            _email = emailAddress;
-            _dayOfBirth = dayOfBirth;
-            _monthOfBirth = monthOfBirth;
-            _yearOfBirth = yearOfBirth;
+            firstName = firstname;
+            lastName = lastname;
+            phone = phonenumber;
+            email = emailaddress;
+            dayOfBirth = dayofbirth;
+            monthOfBirth = monthofbirth;
+            yearOfBirth = yearofbirth;
         }
 
         /// <summary>
@@ -80,7 +88,7 @@ namespace Library
         /// <returns>First name of the contact instance</returns>
         public string getFirstName()
         {
-            return _firstName;
+            return firstName;
         }
 
         /// <summary>
@@ -89,7 +97,7 @@ namespace Library
         /// <returns>Last name of the contact instance</returns>
         public string getLastName()
         {
-            return _lastName;
+            return lastName;
         }
 
         /// <summary>
@@ -98,7 +106,7 @@ namespace Library
         /// <returns>Full name of the contact instance</returns>
         public string getFullName()
         {
-            return $"{_firstName} {_lastName}";
+            return $"{firstName} {lastName}";
         }
 
         /// <summary>
@@ -107,7 +115,7 @@ namespace Library
         /// <returns>Formatted phone number of the contact instance</returns>
         public string getPhone()
         {
-            return $"{_phone.Substring(0, 3)}-{_phone.Substring(3,3)}-{_phone.Substring(6)}";
+            return $"{phone.Substring(0, 3)}-{phone.Substring(3,3)}-{phone.Substring(6)}";
         }
 
         /// <summary>
@@ -116,7 +124,7 @@ namespace Library
         /// <returns>Formatted birthdate for the contact instance</returns>
         public string getDateOfBirth()
         {
-            return $"{_dayOfBirth}/{_monthOfBirth}/{_yearOfBirth}";
+            return $"{dayOfBirth}/{monthOfBirth}/{yearOfBirth}";
         }
 
         /// <summary>
@@ -130,7 +138,7 @@ namespace Library
                 + $"Birthdate: {getDateOfBirth()} (dd/mm/yyyy)\n\n"
                 + $"{Underline("Contact Info:")}\n"
                 + $"  Phone Number: {getPhone()}\n"
-                + $"  Email Address: {_email}\n"
+                + $"  Email Address: {email}\n"
             );
         }
     }
